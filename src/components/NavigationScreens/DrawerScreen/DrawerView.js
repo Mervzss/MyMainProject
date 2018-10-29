@@ -1,6 +1,6 @@
 // React Imports
 import React,{ Component } from 'react'
-import {View, ScrollView, Image, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, ImageBackground} from 'react-native'
 import {createDrawerNavigator,DrawerItems} from 'react-navigation'
 // Drawers imports
 import SendScreen from '../MainScreen/SendScreen'
@@ -8,6 +8,7 @@ import ProfileScreen from '../DrawerScreen/DrawerItems.js/ProfileView'
 // UI Designs
 import DotaLogoImage from '../../../assets/dota2icon.png'
 import Icon from 'react-native-vector-icons/Ionicons'
+import wow from '../../../assets/dt.jpg'
 
 class drawerView extends Component {
     state={
@@ -20,15 +21,16 @@ class drawerView extends Component {
   }
 
   const Drawer = props =>(
+      <ImageBackground source={wow} style={{flex:1, width:"100%", height:"100%"}}>
       <View>
-    <View style={{ height: 100, backgroundColor: 'white', alignItems: "center", justifyContent: "center" }}>
-    <Image source={DotaLogoImage} style={{ height: 50, width: 50, borderRadius: 40 }} />
+    <View style={{  backgroundColor: 'white', alignItems: "center", justifyContent: "center" }}>
+    {/* <Image source={DotaLogoImage} style={{ height: 50, width: 50, borderRadius: 40 }} /> */}
   </View>
     <ScrollView>
     <DrawerItems {...props} />
     <TouchableOpacity >
     <View style={styles.logOutDrawer}>
-          <Text style={{fontWeight:'bold', color:'black'}}>Log Out {props.name} </Text>
+          <Text style={{fontWeight:'bold', color:'white'}}>Log Out {props.name} </Text>
           <Icon name="md-log-out" size={20} color="black"/>
       </View>
     </TouchableOpacity>
@@ -36,6 +38,7 @@ class drawerView extends Component {
       </ScrollView>
       
   </View>
+  </ImageBackground>
   )
   const DrawerList = createDrawerNavigator(
     {

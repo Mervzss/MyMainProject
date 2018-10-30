@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {View,Text,Button} from 'react-native'
 
-class ProfileView extends Component{
+class CreditsView extends Component{
     render(){
         return(
             <View>
@@ -11,4 +11,4 @@ class ProfileView extends Component{
         )
     }
 }
-export default ProfileView;
+export default CreditsView;

@@ -1,7 +1,7 @@
 
 // Main Import
 import React, { Component } from 'react';
-import {createSwitchNavigator,createStackNavigator,createBottomTabNavigator,createDrawerNavigator} from "react-navigation"
+import {createSwitchNavigator,createStackNavigator,createBottomTabNavigator,createDrawerNavigator,TabNavigator} from "react-navigation"
 
 // Login imports
 import AuthScreen from './src/components/NavigationScreens/AuthScreen/AuthView'
@@ -29,16 +29,7 @@ export default class App extends Component {
 }
 
 // Tab Navigator (SendScreen, ReceiveScreen)
-const DefaultMainScreen = createBottomTabNavigator(
-  {
-  First: DrawerScreen,
-  Second: RecieveScreen
-  },
-  {
-    swipeEnabled:false,
-    initialRouteName:'First'
-  }
-)
+
 // Log/Auth Navigator (AuthScreen, CreateScreen)
 const LogScreen = createStackNavigator({
   Log:AuthScreen,
@@ -49,7 +40,7 @@ const LogScreen = createStackNavigator({
 const SwitchingScreens = createSwitchNavigator(
   {
   Auth:LogScreen,
-  Main: DefaultMainScreen,
+  Main: DrawerScreen,
   Settings:GeneralSettingsScreen
   },
   {
